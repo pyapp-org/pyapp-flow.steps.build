@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "Build steps for PyApp Flow"
 authors = ["Tim Savage <tim@savage.company>"]
 readme = "README.md"
-packages = [{include = "pyapp_flow"}]
+packages = [
+    { include = "pyapp_flow", from = "src" },
+    { include = "tests", format = "sdist" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"

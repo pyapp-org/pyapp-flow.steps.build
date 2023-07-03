@@ -33,3 +33,19 @@ class GitClient:
         """Get the git version."""
         value = self._call_binary("--version")
         return value.rpartition(" ")[-1]
+
+    def current_branch(self):
+        """Get the current branch."""
+        return self._call_binary("rev-parse", "--abbrev-ref", "HEAD")
+
+    def checkout(self, branch: str):
+        """Checkout a branch."""
+        return self._call_binary("checkout", branch)
+
+    def pull(self, branch: str):
+        """Pull a branch."""
+        return self._call_binary("pull", branch)
+
+    def push(self, branch: str):
+        """Push a branch."""
+        return self._call_binary("push", branch)
